@@ -23,4 +23,4 @@ Route::post('createpost',[App\Http\Controllers\SignupController::class,'createpo
 Route::post('updatepost',[App\Http\Controllers\SignupController::class,'updatepost'])->name('updatepost');
 Route::get('deletepost/{id}',[App\Http\Controllers\SignupController::class,'deletepost'])->name('deletepost');
 Route::get('getposttag/{tags}',[App\Http\Controllers\SignupController::class,'getposttag'])->name('getposttag');
-Route::post('getallpost',[App\Http\Controllers\SignupController::class,'getallpost'])->name('getallpost');
+Route::get('getallpost/{login_id}',[App\Http\Controllers\SignupController::class,'getallpost'])->name('getallpost');

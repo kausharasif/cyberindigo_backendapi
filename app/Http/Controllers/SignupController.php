@@ -12,9 +12,11 @@ class SignupController extends Controller
 {
     public function signup(Request $request)
     {
+        //($request->all());
+        // return $request->all();
         $validator = Validator::make($request -> all(),[
-            'name' => ['required'],
-            'email' => ['required','email'],
+            'name1' => ['required'],
+            'email1' => ['required','email'],
             'password'         => ['required'],
             'password_confirm' => ['required','same:password'] 
          ]);
@@ -27,8 +29,8 @@ class SignupController extends Controller
          }
 
         $signup = new SignupModel();
-        $signup->name = $request->name;
-        $signup->email = $request->email;
+        $signup->name = $request->name1;
+        $signup->email = $request->email1;
         $signup->password =  Hash::make($request->password);
         $signup->save();
         return response()->json([
@@ -59,7 +61,8 @@ class SignupController extends Controller
 
                 return response()->json([
                     'status' => '200',
-                    'message' => 'You Have Been Login Successfully'
+                    'message' => 'You Have Been Login Successfully',
+                    'login_id' => $login->id
                 ]);
             } 
             else {
